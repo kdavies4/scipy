@@ -57,21 +57,26 @@ zebi = 2**70
 yobi = 2**80
 
 # physical constants
+Rydberg = _cd('Rydberg constant')
 c = speed_of_light = _cd('speed of light in vacuum')
-mu_0 = 4e-7*pi
-epsilon_0 = 1 / (mu_0*c*c)
-h = Planck = _cd('Planck constant')
+G_0 = _cd('conductance quantum')
+Phi_0 = _cd('mag. flux quantum')
+F = _cd('Faraday constant')
+R = gas_constant = _cd('molar gas constant')
+e = elementary_charge = G_0 * Phi_0
+k = Boltzmann = R * e / F
+alpha = fine_structure = 1e-7 * pi * c * G_0
+Z_0 = 4 * alpha / G_0
+mu_0 = Z_0 / c
+epsilon_0 = 1 / (Z_0 * c)
+h = Planck = 2 * e * Phi_0
 hbar = h / (2 * pi)
+N_A = Avogadro = F / e
+sigma = Stefan_Boltzmann = 2 * pi**5 * k**4 / (15 * h**3 * c**2)
+Wien = h * c / (k * 4.965114231744276) 
+# Note:  x = 4.965... is the solution to exp(x)*(5 - x) = 5.
 G = gravitational_constant = _cd('Newtonian constant of gravitation')
 g = _cd('standard acceleration of gravity')
-e = elementary_charge = _cd('elementary charge')
-R = gas_constant = _cd('molar gas constant')
-alpha = fine_structure = _cd('fine-structure constant')
-N_A = Avogadro = _cd('Avogadro constant')
-k = Boltzmann = _cd('Boltzmann constant')
-sigma = Stefan_Boltzmann = _cd('Stefan-Boltzmann constant')
-Wien = _cd('Wien wavelength displacement law constant')
-Rydberg = _cd('Rydberg constant')
 
 # weight in kg
 gram = 1e-3
@@ -87,7 +92,7 @@ troy_ounce = 480 * grain  # only for metals / gems
 troy_pound = 12 * troy_ounce
 carat = 200e-6
 
-m_e = electron_mass = _cd('electron mass')
+m_e = electron_mass = mu_0 * Rydberg * e**2 / alpha**3
 m_p = proton_mass = _cd('proton mass')
 m_n = neutron_mass = _cd('neutron mass')
 m_u = u = atomic_mass = _cd('atomic mass constant')
@@ -139,7 +144,7 @@ gallon = gallon_US = 231 * inch**3  # US
 fluid_ounce = fluid_ounce_US = gallon_US / 128
 bbl = barrel = 42 * gallon_US  # for oil
 
-gallon_imp = 4.54609e-3  # uk
+gallon_imp = 4.54609e-3  # UK
 fluid_ounce_imp = gallon_imp / 160
 
 # speed in meter per second
